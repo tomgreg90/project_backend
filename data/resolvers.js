@@ -7,6 +7,11 @@ const resolvers = {
         return res;
       });
     },
+    musicianById: (parent, args) => {
+      return Musicians.findAll({ where: { id: args.id } }).then((res) => {
+        return res[0];
+      });
+    },
   },
   Mutation: {
     updateMusician: (parent, args) => {
@@ -16,7 +21,6 @@ const resolvers = {
             email: args.email,
           })
           .then((res) => {
-            console.log(res);
             return res;
           });
       });

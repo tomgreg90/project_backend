@@ -3,11 +3,11 @@ const resolvers = require("./resolvers");
 
 const typeDefs = `
 
-    type Query { musicians: [musician]}
-  
+    type Query { musicians: [musician],
+     musicianById(id: ID!): musician }
     type Mutation {updateMusician(id: ID!, email: String!): musician}
     type musician {firstName: String, lastName: String, instrument: String, email: String }
-    type name {name: String}
+    
   `;
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
