@@ -18,10 +18,9 @@
     "url": "https://github.com/tomgreg90/project_backend/issues"
   },
   "homepage": "https://github.com/tomgreg90/project_backend#readme",
-  "devDependencies": {
-    "nodemon": "^2.0.4"
-  },
+  "devDependencies": {},
   "dependencies": {
+    "nodemon": "^2.0.4",
     "apollo-server-express": "^1.4.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
