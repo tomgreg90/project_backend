@@ -20,12 +20,13 @@
   "homepage": "https://github.com/tomgreg90/project_backend#readme",
   "devDependencies": {},
   "dependencies": {
-    "nodemon": "^2.0.4",
     "apollo-server-express": "^1.4.0",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "graphql": "^15.1.0",
     "graphql-tools": "^6.0.9",
+    "nodemon": "^2.0.4",
     "pg": "^8.2.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.13"

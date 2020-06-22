@@ -1,8 +1,6 @@
 const Sequelize = require("sequelize");
 const musicianData = require("./musicians");
 
-console.log(process.env.DATABASE_URL);
-
 let db;
 if (process.env.DATABASE_URL) {
   db = new Sequelize(process.env.DATABASE_URL, {
