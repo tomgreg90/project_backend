@@ -6,8 +6,8 @@ const typeDefs = `
     type Query { musicians: [musician],
      musicianById(id: ID!): musician }
     type Mutation {updateMusician(id: ID!, email: String!): musician}
-    type musician {firstName: String, lastName: String, instrument: String, email: String }
-    
+    type musician {id: ID, firstName: String, lastName: String, instrument: String, email: String }
+
   `;
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });

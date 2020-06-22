@@ -21,7 +21,7 @@ const Musician = db.define("musician", {
 });
 
 db.sync({ force: true }).then(() => {
-  return Musician.bulkCreate(musicianData).then(() => {
+  return Musician.bulkCreate(musicianData).then((data) => {
     console.log("database created");
   });
 });
