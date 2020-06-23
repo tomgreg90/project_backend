@@ -1,4 +1,4 @@
-const Musicians = require("./db");
+const { Musicians, Groups } = require("./db");
 
 const resolvers = {
   Query: {
@@ -10,6 +10,11 @@ const resolvers = {
     musicianById: (parent, args) => {
       return Musicians.findAll({ where: { id: args.id } }).then((res) => {
         return res[0];
+      });
+    },
+    groups: () => {
+      return Groups.findAll().then((res) => {
+        return res;
       });
     },
   },
