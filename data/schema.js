@@ -5,7 +5,8 @@ const typeDefs = `
 
     type Query { musicians: [musician],
      musicianById(id: ID!): musician }
-    type Mutation {updateMusician(id: ID!, email: String!): musician}
+    type Mutation {updateMusician(id: ID!, email: String!): musician,
+    postMusician(firstName: String!, lastName: String!, instrument: String!, email: String!): musician}
     type musician {id: ID, firstName: String, lastName: String, instrument: String, email: String }
 
   `;

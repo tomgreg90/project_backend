@@ -25,6 +25,14 @@ const resolvers = {
           });
       });
     },
+    postMusician: (parent, args) => {
+      const { firstName, lastName, instrument, email } = args;
+      return Musicians.create({ firstName, lastName, instrument, email }).then(
+        (res) => {
+          return res;
+        }
+      );
+    },
   },
 };
 
