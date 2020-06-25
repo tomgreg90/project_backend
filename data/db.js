@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
 const musicianData = require("./musicians");
+const groupData = require("./groups");
 
 let db;
 if (process.env.DATABASE_URL) {
@@ -30,31 +31,7 @@ const Group = db.define("group", {
 
 db.sync({ force: true }).then(() => {
   return Musician.bulkCreate(musicianData).then(() => {
-    return Group.bulkCreate([
-      {
-        groupName: "MANCHESTER BEETHOVEN ORCHESTRA",
-        contact: "Zoe Edmunds",
-        musicGenre: "Classical Music",
-        email: "admin@beethovenorchestra.co.uk",
-        about:
-          "We are an amateur orchestra attracting and welcoming members from across the Greater Manchester area. ",
-      },
-      {
-        groupName: "Manchester Music Makers",
-        contact: "Amelia Bailey",
-        musicGenre: "Classical and Pop",
-        email: "admin@manchestermusicmakers.co.uk",
-        about:
-          "Manchester Music Makers is a friendly orchestra of intermediate standard, always ready to welcome new members.",
-      },
-      {
-        groupName: "The Dave Egerton Band",
-        contact: "Penelope Glover",
-        musicGenre: "Jazz and Swing",
-        email: "admin@@daveegertonband.co.uk",
-        about: "",
-      },
-    ]);
+    return Group.bulkCreate(groupData);
   });
 });
 
