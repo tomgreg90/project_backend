@@ -15,7 +15,8 @@ const typeDefs = `
     type Mutation {updateMusician(id: ID!, email: String!): musician,
                   postMusician(firstName: String!, lastName: String!, instrument: String!, email: String!): musician,
                   postGroup(groupName: String!, contact:String!, musicGenre: String!, email: String!, about: String!): group,
-                register(username: String!, password: String!): User!}
+                  register(username: String!, password: String!): User!,
+                  login(username: String!, password: String!): User!}
 `;
 
 module.exports = typeDefs;

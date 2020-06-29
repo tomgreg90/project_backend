@@ -36,6 +36,13 @@ const resolvers = {
         return res;
       });
     },
+    login: async (parent, args) => {
+      const user = await Users.findOne({ where: { username: args.username } });
+      if (!user) throw new Error("User does not exist!");
+
+      const valid = await bcrypt.compare(args.password, user.password);
+      if (!valid) throw new Error("Invalid password!");
+    },
     updateMusician: (parent, args) => {
       return Musicians.findByPk(args.id).then((res) => {
         return res
