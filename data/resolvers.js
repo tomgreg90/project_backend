@@ -1,8 +1,10 @@
-const { Musicians, Groups } = require("./db");
+const { Musicians, Groups, Users } = require("./db");
+const bcrypt = require("bcrypt");
 
 const resolvers = {
   Query: {
-    musicians: () => {
+    musicians: (parent, args, context) => {
+      if (!context.user) return null;
       return Musicians.findAll().then((res) => {
         return res;
       });
@@ -26,6 +28,14 @@ const resolvers = {
     },
   },
   Mutation: {
+    register: async (parent, args) => {
+      args.password = await bcrypt.hash(args.password, 12);
+      const { username, password } = args;
+
+      return Users.create({ username, password }).then((res) => {
+        return res;
+      });
+    },
     updateMusician: (parent, args) => {
       return Musicians.findByPk(args.id).then((res) => {
         return res

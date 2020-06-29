@@ -14,6 +14,11 @@ if (process.env.DATABASE_URL) {
   });
 }
 
+const User = db.define("user", {
+  username: { type: Sequelize.STRING, unique: true },
+  password: { type: Sequelize.STRING },
+});
+
 const Musician = db.define("musician", {
   firstName: { type: Sequelize.STRING },
   lastName: { type: Sequelize.STRING },
@@ -37,5 +42,6 @@ db.sync({ force: true }).then(() => {
 
 const Musicians = db.models.musician;
 const Groups = db.models.group;
+const Users = db.models.user;
 
-module.exports = { Musicians, Groups };
+module.exports = { Musicians, Groups, Users };
