@@ -1,5 +1,6 @@
 const { Musicians, Groups, Users } = require("./db");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const resolvers = {
   Query: {
@@ -28,20 +29,31 @@ const resolvers = {
     },
   },
   Mutation: {
-    register: async (parent, args) => {
-      args.password = await bcrypt.hash(args.password, 12);
-      const { username, password } = args;
+    register: async (parent, { username, password }) => {
+      password = await bcrypt.hash(password, 12);
 
       return Users.create({ username, password }).then((res) => {
         return res;
       });
     },
-    login: async (parent, args) => {
-      const user = await Users.findOne({ where: { username: args.username } });
+    login: async (parent, { username, password }) => {
+      const user = await Users.findOne({ where: { username } });
       if (!user) throw new Error("User does not exist!");
 
-      const valid = await bcrypt.compare(args.password, user.password);
+      const valid = await bcrypt.compare(password, user.password);
       if (!valid) throw new Error("Invalid password!");
+
+      const token = jwt.sign(
+        {
+          username: user.username,
+        },
+        process.env.SECRET,
+        {
+          expiresIn: "30d",
+        }
+      );
+
+      return { token, user };
     },
     updateMusician: (parent, args) => {
       return Musicians.findByPk(args.id).then((res) => {

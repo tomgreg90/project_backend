@@ -16,7 +16,12 @@ const typeDefs = `
                   postMusician(firstName: String!, lastName: String!, instrument: String!, email: String!): musician,
                   postGroup(groupName: String!, contact:String!, musicGenre: String!, email: String!, about: String!): group,
                   register(username: String!, password: String!): User!,
-                  login(username: String!, password: String!): User!}
+                  login(username: String!, password: String!): LoginResponse!}
+
+    type LoginResponse {
+        token: String!,
+        user: User!
+    }
 `;
 
 module.exports = typeDefs;
