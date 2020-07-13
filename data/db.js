@@ -36,7 +36,7 @@ const Group = db.define("group", {
 
 db.sync({ force: true }).then(() => {
   return Musician.bulkCreate(musicianData).then(() => {
-    return Group.bulkCreate(groupData);
+    return Group.bulkCreate(groupData).then(async () => {});
   });
 });
 

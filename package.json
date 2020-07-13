@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./tests/utils.spec.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,10 @@
     "url": "https://github.com/tomgreg90/project_backend/issues"
   },
   "homepage": "https://github.com/tomgreg90/project_backend#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1"
+  },
   "dependencies": {
     "apollo-server-express": "^1.4.0",
     "bcrypt": "^5.0.0",

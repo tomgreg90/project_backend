@@ -13,20 +13,20 @@ const app = express();
 
 app.use(cors());
 
-// const getUser = (req, res) => {
-//   const token = req.headers.authentication;
-//   console.log(token);
-//   try {
-//     if (token) {
-//       return jwt.verify(token, process.env.SECRET);
-//     }
-//     return null;
-//   } catch (err) {
-//     return null;
-//   }
-// };
+const getUser = async (req) => {
+  console.log(req);
+  const token = req.headers.authentication;
 
-// app.use(getUser);
+  try {
+    const { user } = await jwt.verify(token, process.env.SECRET);
+    req.user = user;
+  } catch (err) {
+    console.log(err);
+  }
+  req.next();
+};
+
+app.use(getUser);
 
 const schema = makeExecutableSchema({
   typeDefs,
@@ -37,9 +37,12 @@ const schema = makeExecutableSchema({
 app.use(
   "/graphql",
   bodyParser.json(),
-  graphqlExpress({
+  graphqlExpress((req) => ({
     schema,
-  })
+    context: {
+      user: req.user,
+    },
+  }))
 );
 
 // GraphiQL, a visual editor for queries
