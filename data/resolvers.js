@@ -8,12 +8,7 @@ const resolvers = {
 
       return Musicians.findAll({
         where: {
-          [Op.or]: [
-            {
-              instrument: { [Op.substring]: args.instrument },
-            },
-            { instrument: { [Op.iLike]: args.instrument } },
-          ],
+          instrument: { [Op.iRegexp]: args.instrument },
         },
       }).then((res) => {
         return res;
