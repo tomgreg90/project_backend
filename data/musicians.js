@@ -8,7 +8,7 @@ module.exports = [
   {
     firstName: "Lisa",
     lastName: "Oliver",
-    instrument: "clarinet",
+    instrument: "clarinet and trumpet",
     email: "lisa.oliver@hotmail.com",
   },
   {
@@ -116,7 +116,7 @@ module.exports = [
   {
     firstName: "Victor",
     lastName: "Gill",
-    instrument: "Violin",
+    instrument: "Violin and piano",
     email: "victor.gill@hotmail.com",
   },
 ];

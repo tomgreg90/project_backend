@@ -3,7 +3,7 @@ const resolvers = require("./resolvers");
 
 const typeDefs = `
 
-    type Query { musicians: [musician],
+    type Query { musicians(instrument: String!): [musician],
                 musicianById(id: ID!): musician,
                 groups: [group],
                 groupById(id: ID!): group}

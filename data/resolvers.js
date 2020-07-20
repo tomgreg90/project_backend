@@ -1,9 +1,21 @@
 const { Musicians, Groups } = require("./db");
+const { Op } = require("sequelize");
 
 const resolvers = {
   Query: {
-    musicians: () => {
-      return Musicians.findAll().then((res) => {
+    musicians: (parent, args) => {
+      console.log(args.instrument);
+
+      return Musicians.findAll({
+        where: {
+          [Op.or]: [
+            {
+              instrument: { [Op.substring]: args.instrument },
+            },
+            { instrument: { [Op.iLike]: args.instrument } },
+          ],
+        },
+      }).then((res) => {
         return res;
       });
     },
