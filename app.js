@@ -14,8 +14,7 @@ const app = express();
 app.use(cors());
 
 const getUser = async (req) => {
-  console.log(req);
-  const token = req.headers.authentication;
+  const token = req.headers.authorization;
 
   try {
     const { user } = await jwt.verify(token, process.env.SECRET);

@@ -22,9 +22,10 @@ describe("encryptPasswords", () => {
         password: await bcrypt.hash("RFz9M@>2", 12),
       },
     ];
-
+    console.log(expected);
     const actual = encryptPasswords(array);
+    console.log(actual);
 
-    expect(actual).to.eql(expected);
+    expect(await actual).to.eql(expected);
   });
 });
