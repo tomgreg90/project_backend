@@ -1,6 +1,7 @@
 const Sequelize = require("sequelize");
 const musicianData = require("./musicians");
 const groupData = require("./groups");
+const bcrypt = require("bcrypt");
 
 let db;
 if (process.env.DATABASE_URL) {
@@ -36,7 +37,11 @@ const Group = db.define("group", {
 
 db.sync({ force: true }).then(() => {
   return Musician.bulkCreate(musicianData).then(() => {
-    return Group.bulkCreate(groupData).then(async () => {});
+    return Group.bulkCreate(groupData).then(async () => {
+      const hashedPassword = await bcrypt.hash("password", 12);
+
+      return User.create({ username: "tomgreg", password: hashedPassword });
+    });
   });
 });
 

@@ -17,11 +17,16 @@ const getUser = async (req) => {
   const token = req.headers.authorization;
 
   try {
-    const { user } = await jwt.verify(token, process.env.SECRET);
-    req.user = user;
+    const { username } = await jwt.verify(
+      token.split(" ")[1],
+      process.env.SECRET
+    );
+    console.log(username);
+    req.username = username;
   } catch (err) {
     console.log(err);
   }
+
   req.next();
 };
 
@@ -39,7 +44,7 @@ app.use(
   graphqlExpress((req) => ({
     schema,
     context: {
-      user: req.user,
+      user: req.username,
     },
   }))
 );

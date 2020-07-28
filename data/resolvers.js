@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const resolvers = {
   Query: {
     musicians: (parent, args, context) => {
+      console.log("user", context.user);
       if (!context.user) return null;
       return Musicians.findAll().then((res) => {
         return res;
@@ -36,10 +37,11 @@ const resolvers = {
         return res;
       });
     },
-    login: async (parent, { username, password }) => {
+    login: async (parent, args) => {
+      const { username, password } = args;
       const user = await Users.findOne({ where: { username } });
       if (!user) throw new Error("User does not exist!");
-
+      console.log(user.username, user.password);
       const valid = await bcrypt.compare(password, user.password);
       if (!valid) throw new Error("Invalid password!");
 
