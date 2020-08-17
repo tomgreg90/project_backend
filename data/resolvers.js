@@ -8,7 +8,7 @@ const resolvers = {
 
       return Musicians.findAll({
         where: {
-          instrument: { [Op.iRegexp]: args.instrument },
+          instrument: { [Op.contains]: [args.instrument] },
         },
       }).then((res) => {
         return res;

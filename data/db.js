@@ -17,7 +17,7 @@ if (process.env.DATABASE_URL) {
 const Musician = db.define("musician", {
   firstName: { type: Sequelize.STRING },
   lastName: { type: Sequelize.STRING },
-  instrument: { type: Sequelize.STRING },
+  instrument: { type: Sequelize.ARRAY(Sequelize.STRING) },
   email: { type: Sequelize.STRING },
 });
 

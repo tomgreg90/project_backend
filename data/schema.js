@@ -8,7 +8,7 @@ const typeDefs = `
                 groups: [group],
                 groupById(id: ID!): group}
 
-    type musician {id: ID, firstName: String, lastName: String, instrument: String, email: String } 
+    type musician {id: ID, firstName: String, lastName: String, instrument: [String!], email: String } 
 
     type group {id: ID, groupName: String, contact: String, musicGenre: String, email: String, about: String} 
 
