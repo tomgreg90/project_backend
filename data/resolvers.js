@@ -1,5 +1,8 @@
-const { Musicians, Groups } = require("./db");
+//const { Musicians, Groups } = require("./db");
 const { Op } = require("sequelize");
+const db = require("../models/index");
+
+const { Musicians, Groups, User } = db.sequelize.models;
 
 const resolvers = {
   Query: {
@@ -15,8 +18,10 @@ const resolvers = {
       });
     },
     musicianById: (parent, args) => {
+      console.log(args);
       const { id } = args;
       return Musicians.findAll({ where: { id } }).then((res) => {
+        console.log(res);
         return res[0];
       });
     },

@@ -18,7 +18,9 @@
     "url": "https://github.com/tomgreg90/project_backend/issues"
   },
   "homepage": "https://github.com/tomgreg90/project_backend#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
+  },
   "dependencies": {
     "apollo-server-express": "^1.4.0",
     "body-parser": "^1.19.0",
