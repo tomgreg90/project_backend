@@ -120,6 +120,12 @@ exports.userData = [
     updatedAt: new Date(),
   },
   {
+    username: "manchester_beethoven",
+    password: "yQxBjhg",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
     username: "manchester_music_makers",
     password: "yQxBfD2q",
     createdAt: new Date(),

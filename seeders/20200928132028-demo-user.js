@@ -3,6 +3,7 @@ const { userData } = require("../data/users");
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+    console.log(userData.length)
     return queryInterface.bulkInsert("Users", userData, {});
     /**
      * Add seed commands here.

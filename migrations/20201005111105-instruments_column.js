@@ -12,6 +12,15 @@ module.exports = {
       queryInterface.addColumn("Musicians", "age", {
         type: Sequelize.INTEGER,
       }),
+      queryInterface.addColumn("Musicians", "user_Id", {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'Users',          
+          },
+          key: 'id'
+        }
+      })
     ]);
   },
 
@@ -20,6 +29,7 @@ module.exports = {
       queryInterface.removeColumn("Musicians", "instrument"),
       queryInterface.removeColumn("Musicians", "about"),
       queryInterface.removeColumn("Musicians", "age"),
+      queryInterface.removeColumn("Musicians", "user_Id")
     ]);
   },
 };

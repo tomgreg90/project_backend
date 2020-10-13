@@ -6,6 +6,12 @@ const { Musicians, Groups, User } = db.sequelize.models;
 
 const resolvers = {
   Query: {
+    getUsers: () => {
+      return User.findAll().then(res => {
+      
+        return res
+      })
+    },
     musicians: (parent, args) => {
       console.log(args.instrument);
 
@@ -21,7 +27,7 @@ const resolvers = {
       console.log(args);
       const { id } = args;
       return Musicians.findAll({ where: { id } }).then((res) => {
-        console.log(res);
+    
         return res[0];
       });
     },

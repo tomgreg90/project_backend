@@ -17,9 +17,7 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      genre: {
-        type: Sequelize.STRING
-      },
+     
       about: {
         type: Sequelize.STRING
       },

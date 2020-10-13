@@ -10,13 +10,28 @@ module.exports = {
       queryInterface.changeColumn("Groups", "about", {
         type: Sequelize.TEXT,
       }),
+      queryInterface.addColumn('Groups', 'musicGenre', {
+        type: Sequelize.DataTypes.STRING
+      }),
+    
+      queryInterface.addColumn("Groups", "user_Id", {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'Users',          
+          },
+          key: 'id'
+        }
+      })
     ]);
   },
 
   down: async (queryInterface, Sequelize) => {
-    // return Promise.all([
-    //   queryInterface.changeColumn("Groups", "email", {}),
-    //   queryInterface.changeColumn("Groups", "about", {}),
-    // ]);
+
+  return Promise.all([
+     queryInterface.removeColumn("Groups", "user_Id"),
+     queryInterface.removeColumn("Groups", "musicGenre")
+  ])
+ 
   },
 };
