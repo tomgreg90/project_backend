@@ -1,133 +1,133 @@
 exports.musicians_instruments = [
 
     {
-        instrument_id: 1,
-        musician_id: 1,
+        InstrumentId: 1,
+        MusicianId: 1,
         grade: 5
     },
     {
-        instrument_id: 1,
-        musician_id: 2,
+        InstrumentId: 1,
+        MusicianId: 2,
         grade: 5
     },
     {
-        instrument_id: 2,
-        musician_id: 2,
+        InstrumentId: 2,
+        MusicianId: 2,
         grade: 4
     },
     {
-        instrument_id: 3,
-        musician_id: 3,
+        InstrumentId: 3,
+        MusicianId: 3,
         grade: 7
     },
     {
-        instrument_id: 3,
-        musician_id: 4,
+        InstrumentId: 3,
+        MusicianId: 4,
         grade: 3
     },
     {
-        instrument_id: 4,
-        musician_id: 5,
+        InstrumentId: 4,
+        MusicianId: 5,
         grade: 7
     },
     {
-        instrument_id: 5,
-        musician_id: 6,
+        InstrumentId: 5,
+        MusicianId: 6,
         grade: 8
     },
     {
-        instrument_id: 6,
-        musician_id: 7,
+        InstrumentId: 6,
+        MusicianId: 7,
         grade: 7
     },
     {
-        instrument_id: 7,
-        musician_id: 8,
+        InstrumentId: 7,
+        MusicianId: 8,
         grade: 5
     },
     {
-        instrument_id: 8,
-        musician_id: 9,
+        InstrumentId: 8,
+        MusicianId: 9,
         grade: 4
     },
     {
-        instrument_id: 9,
-        musician_id: 10,
+        InstrumentId: 9,
+        MusicianId: 10,
         grade: 6
     },
     {
-        instrument_id: 1,
-        musician_id: 11,
+        InstrumentId: 1,
+        MusicianId: 11,
         grade: 3
     },
     {
-        instrument_id: 3,
-        musician_id: 12,
+        InstrumentId: 3,
+        MusicianId: 12,
         grade: 7
     },
     {
-        instrument_id: 3,
-        musician_id: 13,
+        InstrumentId: 3,
+        MusicianId: 13,
         grade: 1
     },
     {
-        instrument_id: 10,
-        musician_id: 14,
+        InstrumentId: 10,
+        MusicianId: 14,
         grade: 6
     },
     {
-        instrument_id: 4,
-        musician_id: 14,
+        InstrumentId: 4,
+        MusicianId: 14,
         grade: 6
     },
     {
-        instrument_id: 2,
-        musician_id: 15,
+        InstrumentId: 2,
+        MusicianId: 15,
         grade: 8
     },
     {
-        instrument_id: 16,
-        musician_id: 16,
+        InstrumentId: 16,
+        MusicianId: 16,
         grade: 1
     },
     {
-        instrument_id: 5,
-        musician_id: 16,
+        InstrumentId: 5,
+        MusicianId: 16,
         grade: 3
     },
     {
-        instrument_id: 15,
-        musician_id: 17,
+        InstrumentId: 15,
+        MusicianId: 17,
         grade: 4
     },
     {
-        instrument_id: 4,
-        musician_id: 18,
+        InstrumentId: 4,
+        MusicianId: 18,
         grade: 2
     },
     {
-        instrument_id: 7,
-        musician_id: 18,
+        InstrumentId: 7,
+        MusicianId: 18,
         grade: 2
     },
     {
-        instrument_id: 8,
-        musician_id: 19,
+        InstrumentId: 8,
+        MusicianId: 19,
         grade: 6
     },
     {
-        instrument_id: 10,
-        musician_id: 20,
+        InstrumentId: 10,
+        MusicianId: 20,
         grade: 4
     },
     {
-        instrument_id: 13,
-        musician_id: 20,
+        InstrumentId: 13,
+        MusicianId: 20,
         grade: 7
     },
     {
-        instrument_id: 12,
-        musician_id: 20,
+        InstrumentId: 12,
+        MusicianId: 20,
         grade: 6
     }
 ]

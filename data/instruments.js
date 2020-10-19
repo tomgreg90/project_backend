@@ -4,11 +4,13 @@ exports.instruments = [
         instrument: "trumpet",
         createdAt: new Date(),
         updatedAt: new Date(),
+    
     },
     {
         instrument: "clarinet",
         createdAt: new Date(),
         updatedAt: new Date(),
+    
     },
     {
         instrument: "saxophone",

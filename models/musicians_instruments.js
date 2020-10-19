@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const {Musicians} = require('./musicians');
 module.exports = (sequelize, DataTypes) => {
   class musicians_instruments extends Model {
     /**
@@ -9,14 +10,16 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate({Musicians, Instrument, musicians_instruments}) {
+
+      Musicians.belongsToMany(Instrument, { through: musicians_instruments });
+      Instrument.belongsToMany(Musicians, { through: musicians_instruments });
       // define association here
     }
   };
   musicians_instruments.init({
-    instrument_id: DataTypes.INTEGER,
-    musician_id: DataTypes.INTEGER,
-    grade: DataTypes.INTEGER
+    InstrumentId: DataTypes.INTEGER,
+    MusicianId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'musicians_instruments',

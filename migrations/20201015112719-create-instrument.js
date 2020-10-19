@@ -2,7 +2,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Instruments', {
-      id: {
+    id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -10,7 +10,7 @@ module.exports = {
       },
       instrument: {
         type: Sequelize.STRING
-      },
+      },     
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

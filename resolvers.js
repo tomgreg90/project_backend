@@ -1,33 +1,39 @@
 //const { Musicians, Groups } = require("./db");
 const { Op } = require("sequelize");
-const db = require("../models/index");
+const db = require("./models/index");
 
-const { Musicians, Groups, User } = db.sequelize.models;
+const { Musicians, Groups, User, musicians_instruments, Instrument } = db.sequelize.models;
 
 const resolvers = {
   Query: {
     getUsers: () => {
-      return User.findAll().then(res => {
-      
+      return User.findAll().then(res => {      
         return res
       })
     },
-    musicians: (parent, args) => {
-      console.log(args.instrument);
-
-      return Musicians.findAll({
-        where: {
-          instrument: { [Op.contains]: [args.instrument] },
-        },
+    musiciansByInstrument: (parent, {instrument}) => {  
+      
+      return Instrument.findAll({
+        where: {instrument} ,
+        include: [{
+          model: Musicians,          
+         }],           
+              
       }).then((res) => {
-        return res;
+        console.log(res[0].dataValues.Musicians)
+    
+        return res[0].dataValues.Musicians;
       });
     },
-    musicianById: (parent, args) => {
-      console.log(args);
-      const { id } = args;
-      return Musicians.findAll({ where: { id } }).then((res) => {
-    
+    musicianById: (parent, {id}) => {
+  
+      return Musicians.findAll(
+        { where: { id } ,
+        include: [{
+          model: Instrument
+        }]        
+       } ).then((res) => {
+        console.log(res)
         return res[0];
       });
     },

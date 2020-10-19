@@ -8,7 +8,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      instrument_id: {
+      firstName: {
+        type: Sequelize.STRING
+      },
+      lastName: {
+        type: Sequelize.STRING
+      },
+      InstrumentId: {
         type: Sequelize.INTEGER,
         references: {
           model: {
@@ -17,7 +23,7 @@ module.exports = {
           key: 'id'
         }
       },
-      musician_id: {
+      MusicianId: {
         type: Sequelize.INTEGER,
         references: {
           model: {
@@ -26,10 +32,20 @@ module.exports = {
           key: 'id'
         }
       },
+      instrument: {
+        type: Sequelize.STRING
+      },
       grade: {
         type: Sequelize.INTEGER
       },
-     
+      createdAt: {
+        allowNull: true,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: true,
+        type: Sequelize.DATE
+      }
     });
   },
   down: async (queryInterface, Sequelize) => {
