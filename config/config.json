@@ -15,10 +15,6 @@
   },
   "production": {
     "use_env_variable": "DATABASE_URL"
-    // "username": "tomgreg90",
-    // "password": "password",
-    // "database": "playaz_production",
-    // "host": "localhost",
-    // "dialect": "postgres"
+    
   }
 }
