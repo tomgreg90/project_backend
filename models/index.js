@@ -14,9 +14,13 @@ console.log(NODE_ENV)
 
 
 let sequelize;
-if (config.use_env_variable) {
+// if (config.use_env_variable) {
 
-  sequelize = new Sequelize(process.env[config.use_env_variable], {
+//   sequelize = new Sequelize(process.env[config.use_env_variable], {
+//     dialect: "postgres",
+//   });
+if (process.env.DATABASE_URL) {
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: "postgres",
   });
 } else {
